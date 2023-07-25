@@ -623,8 +623,8 @@ fn emit_field_write(
             if let Some(temp_value) = &f.temp_value {
                 let field_type = &f.ty;
                 quote! {
-                    let #field_ident: #field_type = #temp_value;
-                    ::#crate_::DekuWriter::to_writer(#object_prefix &#field_ident, __deku_writer, (#write_args))
+                    let #field_ident: &#field_type = &#temp_value;
+                    ::#crate_::DekuWriter::to_writer(#object_prefix #field_ident, __deku_writer, (#write_args))
                 }
             } else {
                 quote! { core::result::Result::<(), ::#crate_::DekuError>::Ok(()) }
