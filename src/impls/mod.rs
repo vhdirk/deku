@@ -10,6 +10,9 @@ mod vec;
 #[cfg(feature = "std")]
 mod arc;
 
+// #[cfg(feature = "std")]
+// mod mutex;
+
 #[cfg(feature = "std")]
 mod cow;
 
